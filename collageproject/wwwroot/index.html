@@ -1,0 +1,64 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="IVRReport.aspx.cs" Inherits="Schedular_IVRReport" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
+
+    <style type="text/css">
+
+        .i_table2 td {
+            padding: 10px 10px 10px 10px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
+
+    <div class="form_panel top_panel">
+
+
+        <div class="main">
+            <div class="form_1">
+                <div class="f_title_l">
+                    <div class="f_title_r">
+                        <div class="f_title_m">
+                            <p>
+                                IVR Report
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <table cellpadding="0" cellspacing="0" border="0" class="i_table2">
+                        <tr>
+                            <td height="37" valign="top" align="right">Upload File:</td>
+                            <td height="37" align="left">
+                                <asp:FileUpload ID="fuIVR" TabIndex="6" runat="server" />
+                                <p class="arial_11_666"><%= Convert.ToString(GetGlobalResourceObject("Resource","50MBMax")) %></p>
+                                <asp:RequiredFieldValidator ID="rqdFDDFile" runat="server" ErrorMessage="Please Select File To Import."
+                                                            Display="None" ValidationGroup="valid" ControlToValidate="fuIVR"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revImage" runat="server" ControlToValidate="fuIVR"
+                                                                ValidationGroup="valid" Display="None" ErrorMessage="Invalid Format of file. Only xls, xlsx and csv files are allowed."
+                                                                ForeColor="Red" ValidationExpression="^.+\.((xls)|(xlsx)|(csv))$"></asp:RegularExpressionValidator>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="37"></td>
+                            <td height="37" align="left">
+                                <asp:HyperLink ID="lnkSamplefile" ToolTip="Click to download file." Text="View Sample file to upload." runat="server" NavigateUrl="~/images/IVR.xlsx"></asp:HyperLink>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td height="37"></td>
+                            <td height="37" align="left">
+                                <asp:Button CssClass="button_1" OnClick="btnUpload_Click" ID="btnUpload" runat="server" ValidationGroup="valid" Text="Upload" />
+                                <asp:ValidationSummary ID="validSummBrokersImport" runat="server" ValidationGroup="valid" ShowMessageBox="true" ShowSummary="false" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+
