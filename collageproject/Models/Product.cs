@@ -45,7 +45,7 @@ namespace MyApi.Models
         //public byte[] ImageUrl { get; set; }
         //public bool InStock { get; set; }
         //public int cartitemid { get; set; }
-
+            
 
         //public User User { get; set; }
         //public Product Product { get; set; }
