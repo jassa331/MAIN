@@ -30,6 +30,7 @@ namespace MyApi.Models
         public string PASSWORD { get; set; }
         public bool ISADMIN { get; set; }
     }
+    //THIS IS CARTITEM MODEL
     [Table("cartitem")]
     public class cartitem {
         [Key]
